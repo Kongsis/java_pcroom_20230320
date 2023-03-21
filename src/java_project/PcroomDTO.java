@@ -7,7 +7,8 @@ public class PcroomDTO {
 	private String name;
 	private String id;
 	private String password;
-	private String phone; // 핸드폰번호
+	private String phone; 	// 핸드폰번호
+	private long time;		// 충전시간
 	private int remainTime; // 남은시간
 	private int seatNumber; // 좌석번호
 	private boolean status; // 이용상태
@@ -18,23 +19,30 @@ public class PcroomDTO {
 	}
 	public PcroomDTO(String phone) {
 		this.number = memberNumber;
+		this.phone = phone;
 		this.id = "guest";
 		this.password= "0000";
-		this.phone = phone;
 		this.seatNumber = -1;
 		this.remainTime = 0;
 		this.status = false;
 		this.member = false;
 	}
-	public PcroomDTO(String id, String password, String phone) {
+	public PcroomDTO(String name, String phone, String id, String password) {
 		this.number = memberNumber;
+		this.name = name;
+		this.phone = phone;
 		this.id = id;
 		this.password = password;
-		this.phone = phone;
 		this.seatNumber = -1;
 		this.remainTime = 0;
 		this.status = false;
 		this.member = true;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public int getNumber() {
 		return number;
@@ -59,6 +67,17 @@ public class PcroomDTO {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public long getTime() {
+		return time;
+	}
+	public void setTime(long time) {
+		this.time = time;
+		if(member = false) {
+//			this.time = "1시간"+ 1+ 1200+ 60;
+		}else {
+			
+		}
 	}
 	public int getRemainTime() {
 		return remainTime;
