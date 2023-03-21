@@ -2,6 +2,7 @@ package java_project;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.time.Duration;
 import java.util.*;
 
 public class PcroomRepository {
@@ -12,6 +13,7 @@ public class PcroomRepository {
 	}
 	
 	List<PcroomDTO> list = new ArrayList<>();
+	TimeCharging timeCharging = new TimeCharging();
 	
 	public boolean save(PcroomDTO pcroomDTO) {
 		return list.add(pcroomDTO);
@@ -63,27 +65,6 @@ public class PcroomRepository {
 		return false;
 	}
 	
-//	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-//	public void start(long time) {
-//		feeDTO fee = new feeDTO();
-//		fee.setStartTime(time);
-//	}
-//	
-//	public int stop(long time) {
-//		feeDTO fee = new feeDTO();
-//		long dif = 0;
-//		int money = 0;
-//		fee.setFinishTime(time);
-//		dif = (fee.getFinishTime()-fee.getStartTime()) / 1000;
-//		if(dif < 60) {
-//			money = 500;
-//		}else {
-//			money = (int)(500 + (dif-60) / 10*10);
-//		}
-//		fee.setFee(fee.getFee()+money);
-//		return money;
-//	}
-	
 	public boolean update1(PcroomDTO pcroomDTO, String pw) {
 		for(PcroomDTO p : list) {
 			if(p.getPassword().equals(pw)) {
@@ -104,6 +85,12 @@ public class PcroomRepository {
 			}
 		}
 		return false;
+	}
+	
+	public TimeCharging useTime() {
+		
+		return timeCharging;
+		
 	}
 	
 }

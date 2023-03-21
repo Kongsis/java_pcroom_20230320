@@ -107,99 +107,29 @@ public class PcroomService {
 		System.out.println("임시회원번호 : "+pcroomDTO.getNumber());
 //		System.out.println(pcroomDTO);
 	}
-
-//	public void time() {
-//		   final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-//		   final Runnable runnable = new Runnable() {
-//			   int countdown = 20;
-//			   
-//			   public void run() {
-//				   System.out.println("[남은시간 : "+countdown+"]");
-//				   countdown--;
-//				   
-//				   if(countdown < 0) {
-//					   System.out.println("[남은시간 : 종료]");
-//					   scheduler.shutdown();
-//				   }
-//			   }
-//		   };
-//		   scheduler.scheduleAtFixedRate(runnable, 0, 1, SECONDS);
-//	}
-	
-	public void time() {
-		feeDTO fee = new feeDTO();
-		System.out.print("충전하실 금액을 입력해주세요> ");
-		int money = sc.nextInt();
-		fee.setFee(money);
-		long count = fee.getFee() / 1000 * 2;
-		fee.setTime(count);
-		System.out.println("총 " + count + "분 충전되었습니다.");
-		
-		Timer timer = new Timer();
-		TimerTask task = new TimerTask() {
-			@Override
-			public void run() {
-				while(true) {
-					if(fee.getTime() >= 0) {
-						System.out.println("[남은시간 : "+fee.getTime()+"]");
-						
-					}
-				}
-			}
-		};
-		timer.schedule(task, 5000);
-	}
 	
 //	public void time() {
 //		feeDTO fee = new feeDTO();
 //		System.out.print("충전하실 금액을 입력해주세요> ");
-//		fee.setFee(sc.nextInt());
-//		int totalTime = fee.getFee() / 1000 * 60;
-	
-//		fee.setStartTime(totalTime);
-//		System.out.println("총 " + fee.getStartTime() + "분 충전되었습니다.");
+//		int money = sc.nextInt();
+//		fee.setFee(money);
+//		long count = fee.getFee() / 1000 * 2;
+//		fee.setTime(count);
+//		System.out.println("총 " + count + "분 충전되었습니다.");
 //		
 //		Timer timer = new Timer();
 //		TimerTask task = new TimerTask() {
+//			@Override
 //			public void run() {
-//				long count = fee.getStartTime();
 //				while(true) {
-//					if(count > 0) {
-//						System.out.println("[남은시간 : "+count+"]");
-//						count--;
-//					}
-//					if(count == 0) {
-//						timer.cancel();
-//						System.out.println("[남은시간 : 종료]");
-//						break;
+//					if(fee.getTime() >= 0) {
+//						System.out.println("[남은시간 : "+fee.getTime()+"]");
+//						
 //					}
 //				}
 //			}
 //		};
-//		timer.schedule(task, 1000, 1000);
-//	}
-//	public void time() {
-//		feeDTO fee = new feeDTO();
-//		System.out.print("충전하실 금액을 입력해주세요> ");
-//		fee.setFee(sc.nextInt());
-//		int totalTime = fee.getFee() / 1000 * 60;
-//		fee.setStartTime(totalTime);
-//		System.out.println("총 " + fee.getStartTime() + "분 충전되었습니다.");
-//		
-//		Timer timer = new Timer();
-//		TimerTask task = new TimerTask() {
-//			public void run() {
-//				long count = fee.getStartTime();
-//					if(count >= 0) {
-//						System.out.println("[남은시간 : "+count+"]");
-//						count--;
-//					}else {
-//						timer.cancel();
-//						System.out.println("[남은시간 : 종료]");
-//					}
-//				}
-//		};
-//		timer.schedule(task, 1000, 1000);
+//		timer.schedule(task, 5000);
 //	}
 	
 	public void update1() {
@@ -239,9 +169,7 @@ public class PcroomService {
 		System.out.println("\n로그아웃 되었습니다.");
 	}
 	
-	public void seatChk() {
-		
-		int col = 65;
+	public void useTime() {
 		
 	}
 }

@@ -52,7 +52,7 @@ public class PcroomMain {
 				if(loginOk) {
 					
 				}else {
-					service.time();
+					service.useTime();
 				}
 			}else if(menu == 6 && loginOk) {
 				service.delete();
