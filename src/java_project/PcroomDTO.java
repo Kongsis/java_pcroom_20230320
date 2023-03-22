@@ -2,7 +2,7 @@ package java_project;
 
 public class PcroomDTO {
 	
-	private static int memberNumber = 100; // 회원번호
+	private static int memberNumber = 10000; // 회원번호
 	private int number; // 회원번호(자동증가)
 	private String name;
 	private String id;
@@ -10,32 +10,38 @@ public class PcroomDTO {
 	private String phone; 	// 핸드폰번호
 	private long time;		// 충전시간
 	private int remainTime; // 남은시간
-	private int seatNumber; // 좌석번호
-	private boolean status; // 이용상태
 	private boolean member; // 회원, 비회원 여부
 	
 	public PcroomDTO() {
-		this.number = memberNumber++;
+//		this.name = "admin";
+//		this.id = "admin";
+//		this.password = "1234";
+		
+	}
+	
+	public PcroomDTO(String id, String password) {
+		this.number = 1;
+		this.phone = "010-0000-0000";
+		this.id = "admin";
+		this.password = "1234";
+		this.remainTime = 0;
+		this.member = true;
 	}
 	public PcroomDTO(String phone) {
-		this.number = memberNumber;
+		this.number = memberNumber--;
 		this.phone = phone;
 		this.id = "guest";
 		this.password= "0000";
-		this.seatNumber = -1;
 		this.remainTime = 0;
-		this.status = false;
 		this.member = false;
 	}
 	public PcroomDTO(String name, String phone, String id, String password) {
-		this.number = memberNumber;
+		this.number = memberNumber++;
 		this.name = name;
 		this.phone = phone;
 		this.id = id;
 		this.password = password;
-		this.seatNumber = -1;
 		this.remainTime = 0;
-		this.status = false;
 		this.member = true;
 	}
 	public String getName() {
@@ -73,29 +79,12 @@ public class PcroomDTO {
 	}
 	public void setTime(long time) {
 		this.time = time;
-		if(member = false) {
-//			this.time = "1시간"+ 1+ 1200+ 60;
-		}else {
-			
-		}
 	}
 	public int getRemainTime() {
 		return remainTime;
 	}
 	public void setRemainTime(int remainTime) {
 		this.remainTime = remainTime;
-	}
-	public int getSeatNumber() {
-		return seatNumber;
-	}
-	public void setSeatNumber(int seatNumber) {
-		this.seatNumber = seatNumber;
-	}
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
 	}
 	public boolean isMember() {
 		return member;
@@ -106,6 +95,6 @@ public class PcroomDTO {
 	
 	@Override
 	public String toString() {
-		return number + "\t" + name + "\t" + id + "\t" + password + "\t" + phone + "\t" + remainTime + "\t" + seatNumber + "\t" +  status + "\t" + member;
+		return number + "\t" + name + "\t" + id + "\t" + password + "\t" + phone + "\t" + remainTime + "\t" + "\t" + member;
 	}
 }

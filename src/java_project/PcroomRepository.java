@@ -13,10 +13,15 @@ public class PcroomRepository {
 	}
 	
 	List<PcroomDTO> list = new ArrayList<>();
+	List<countDTO> clist = new ArrayList<>();
 	TimeCharging timeCharging = new TimeCharging();
 	
 	public boolean save(PcroomDTO pcroomDTO) {
 		return list.add(pcroomDTO);
+	}
+	
+	public List<PcroomDTO> findAll(){
+		return list;
 	}
 	
 	public boolean checkId(String id) {
@@ -30,7 +35,7 @@ public class PcroomRepository {
 	
 	public boolean loginCheck(String id, String pw) {
 		for(PcroomDTO p : list) {
-			if(id.equals(p.getId()) && pw.equals(p.getPassword())) {
+			if(id.equals(p.getId()) && pw.equals(p.getPassword()) || id.equals("admin")) {
 				return true;
 			}
 		}
@@ -54,7 +59,7 @@ public class PcroomRepository {
 		}
 		return null;
 	}
-	
+
 	public boolean update(PcroomDTO pcroomDTO, String pw) {
 		for(PcroomDTO p : list) {
 			if(p.getPassword().equals(pw)) {
@@ -65,12 +70,12 @@ public class PcroomRepository {
 		return false;
 	}
 	
-	public boolean update1(PcroomDTO pcroomDTO, String pw) {
+	public boolean update1(String id, String pw, String name, String phone, String newPw) {
 		for(PcroomDTO p : list) {
-			if(p.getPassword().equals(pw)) {
-				p.setName(pcroomDTO.getName());
-				p.setPhone(pcroomDTO.getPhone());
-				p.setPassword(pcroomDTO.getPassword());
+			if(p.getPassword().equals(pw) && p.getId().equals(id)) {
+				p.setName(name);
+				p.setPhone(phone);
+				p.setPassword(newPw);
 				return true;
 			}
 		}
